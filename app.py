@@ -1,3 +1,4 @@
+
 # Core Pkgs 
 import streamlit as st
 import streamlit.components.v1 as stc 
@@ -8,6 +9,9 @@ from wordcloud import WordCloud
 from collections import Counter
 from textblob import TextBlob
 import neattext
+
+import nltk
+nltk.download('punkt')
 
 # EDA
 import pandas as pd
