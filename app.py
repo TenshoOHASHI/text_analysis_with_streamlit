@@ -7,7 +7,7 @@ import neattext.functions as nfx
 from wordcloud import WordCloud
 from collections import Counter
 from textblob import TextBlob
-
+import neattext
 
 # EDA
 import pandas as pd
