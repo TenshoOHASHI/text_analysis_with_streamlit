@@ -269,8 +269,8 @@ def pos_jieba_zn(raw_text):
     words_tags_list = []
     
     for i in pseg:
-        words_tag_str = (i.__str__().decode("utf-8"))
-        words_tags_list_ = (words_tag_str.split("/"))
+        words_tag_str = i.__str__()
+        words_tags_list_ = (words_tag_str.decode("utf-8").split("/"))
     
     
         #words_tags_list.extend(words_tags_list_)
