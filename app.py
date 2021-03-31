@@ -263,7 +263,7 @@ def most_common_keyword_extracter_idf_zn(docx,common=10):
     coommon_keyword_idf_df = pd.DataFrame(coommon_keyword_idf_list,columns=["Word Most Common","Inverse Document Frequency"])
     
     st.dataframe(coommon_keyword_idf_df)
-    
+
 @st.cache(allow_output_mutation=True)
 def pos_jieba_zn(raw_text):
     pseg = jieba.posseg.cut(raw_text)
@@ -273,7 +273,8 @@ def pos_jieba_zn(raw_text):
     
     for i in pseg:
         
-        words_tag_str = i.__str__().decode(encoding="utf-8")
+        words_tag_str = i.__str__().decode("utf-8")
+        words_tag_str.encode("utf")
         words_tags_list_ = (words_tag_str.split("/"))
     
     
