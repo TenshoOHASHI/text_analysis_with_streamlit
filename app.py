@@ -1,4 +1,4 @@
-
+# encoding=utf-8
 # Core Pkgs 
 import streamlit as st
 import streamlit.components.v1 as stc 
@@ -268,30 +268,10 @@ def most_common_keyword_extracter_idf_zn(docx,common=10):
 def pos_jieba_zn(raw_text):
     pseg = jieba.posseg.cut(raw_text)
 
-    words_tags_list = []
-    
-    
-    for i in pseg:
-        
-        words_tag_str = i.__str__().decode("utf-8")
-        words_tag_str.encode("utf")
-        words_tags_list_ = (words_tag_str.split("/"))
-    
-    
-        #words_tags_list.extend(words_tags_list_)
-        for w_t in (words_tags_list_):
-            a = "".join(list(w_t))
-            words_tags_list.append(a)
-    
-    df = pd.DataFrame(words_tags_list,columns=["pos"])
-    words = df[df["pos"].index % 2  == 0 ].values.tolist()
-    tags = df[df["pos"].index % 2 == 1 ].values.tolist()
-
     words_tags_dict = {}
-    for w,t  in zip(words,tags):
-       
-        words_tags_dict[w[0]] = t[0]
-
+    words_tags_dict = {i.word:i.flag for i in pseg} 
+    #for i in pseg:
+        #words_tags_list[i.word] = i.flag 
     return words_tags_dict 
 
 
