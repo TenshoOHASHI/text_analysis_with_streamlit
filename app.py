@@ -21,6 +21,7 @@ nltk.download('averaged_perceptron_tagger')
 
 # EDA
 import pandas as pd
+from base64 import decode,encode
 
 # Data Viz Pkgs 
 from matplotlib.font_manager import FontProperties
@@ -262,15 +263,18 @@ def most_common_keyword_extracter_idf_zn(docx,common=10):
     coommon_keyword_idf_df = pd.DataFrame(coommon_keyword_idf_list,columns=["Word Most Common","Inverse Document Frequency"])
     
     st.dataframe(coommon_keyword_idf_df)
-
+    
+@st.cache(allow_output_mutation=True)
 def pos_jieba_zn(raw_text):
     pseg = jieba.posseg.cut(raw_text)
 
     words_tags_list = []
     
+    
     for i in pseg:
-        words_tag_str = i.__str__()
-        words_tags_list_ = (words_tag_str.decode("utf-8").split("/"))
+        
+        words_tag_str = i.__str__().decode(encoding="utf-8")
+        words_tags_list_ = (words_tag_str.split("/"))
     
     
         #words_tags_list.extend(words_tags_list_)
