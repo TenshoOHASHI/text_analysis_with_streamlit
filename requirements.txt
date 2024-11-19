@@ -6,7 +6,7 @@ altair==4.1.0
 nltk==3.5
 matplotlib==3.3.4
 wordcloud==1.8.1
-pandas==1.2.3
+pandas
 textblob==0.15.3
 neattext==0.1.0
 spacy>=2.2.0,<3.0.0
